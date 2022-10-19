@@ -7,11 +7,37 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    let startButtonText = "Start"
+    let nextButtonText = "Next"
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            Color.black
+                .ignoresSafeArea()
+            VStack{
+                CircleView(color: .red, opacity: 0.3)
+                CircleView(color: .yellow, opacity: 0.3)
+                CircleView(color: .green, opacity: 0.3)
+                
+                Spacer()
+                
+                Button {
+                    // тут должен быть метод или логика для кнопки
+                } label: {
+                    Text("startButtonText")
+                        .font(.title)
+                }
+            }
+        }
     }
+}
+
+func changeTrafficLightColor() {
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
