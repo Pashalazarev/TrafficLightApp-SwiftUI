@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+enum TrafficLights {
+    case red
+    case yellow
+    case green
+}
 
 
 struct ContentView: View {
-    
-    let startButtonText = "Start"
-    let nextButtonText = "Next"
+
+    @State var startButton = "Start"
+    @State var nextButton = "Next"
     
     var body: some View {
         ZStack{
@@ -22,26 +27,30 @@ struct ContentView: View {
                 CircleView(color: .red, opacity: 0.3)
                 CircleView(color: .yellow, opacity: 0.3)
                 CircleView(color: .green, opacity: 0.3)
-                
                 Spacer()
-                
+
                 Button {
-                    // тут должен быть метод или логика для кнопки
+         startButton = nextButton
+                    
                 } label: {
-                    Text("startButtonText")
+                    Text ("\(startButton)")
                         .font(.title)
-                }
+                        .background(Color(uiColor: .blue))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                } .padding()
             }
         }
+        
     }
 }
 
-func changeTrafficLightColor() {
-    
-}
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
